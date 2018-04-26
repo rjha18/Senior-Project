@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default class Navigation extends React.Component {
     constructor() {
@@ -8,9 +9,9 @@ export default class Navigation extends React.Component {
     render() {
         return (
             <ul>
-                <li> <a href="shop.html"> shop </a> </li>
-                <li> <a id="demo" href=""> about </a> </li>
-                <li> <a href=""> contact </a> </li>
+                <li> <Link to="/shop"> shop </Link> </li>
+                <li> <Link to="/"> about </Link> </li>
+                <li> <Link to="/"> contact </Link> </li>
             </ul>
         );
     }
