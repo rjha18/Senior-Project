@@ -1,4 +1,6 @@
 import React from 'react';
+import Logo from './Logo';
+import Navigation from './Navigation'
 
 export default class Shop extends React.Component {
     constructor() {
@@ -8,7 +10,8 @@ export default class Shop extends React.Component {
     render() {
         return (
             <div className="menu">
-                <p> hello </p>
+                <Logo/>
+                <Navigation/>
             </div>
         )
     }
