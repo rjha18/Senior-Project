@@ -6,13 +6,13 @@ function submitForm() {
     price(amount);
     description(id);
     number(1);
-    
+    var obj = JSON.stringify({'ship': 'coat'});
     var formData = new FormData( form );
-    
+    console.log(formData);
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/apii');
-    xhr.send(JSON.stringify(formData));
-    console.log('xd' + JSON.stringify(formData));
+    xhr.send(obj);
+    console.log('xd' + obj);
     window.location.href = '/../cart.html';
 }
 

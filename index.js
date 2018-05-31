@@ -32,7 +32,7 @@ app.listen(8080, () => {
 
 app.post('/apii', function(req, res, next) {
 	const amount = req.body.amount;
-	const itemDescription = req.body.itemDescription;
+	const itemDescription = JSON.parse(req.body.ship);
 	console.log(itemDescription);
 	const cost = req.body.price;
 	var jsonObject = {"amount": amount, "itemDescription": itemDescription, "cost": cost};
