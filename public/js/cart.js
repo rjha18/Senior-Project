@@ -1,14 +1,14 @@
+function getCookie(name) {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length == 2) return parts.pop().split(";").shift();
+}
+
 function printCookie() {
-    var name = "cart" + "=";
-    var ca = document.cookie.split(';');
-    for(var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            console.log(JSON.parse(c.substring(name.length, c.length)));
-        }
+    var obj = decodeURI(getCookie('cart')).split("\"");
+    console.log(obj);
+    for (var i = 0; i < obj.length; i++) {
+        obj.splice(i, 1);
     }
-    console.log("hi");
+    console.log(obj);
 }

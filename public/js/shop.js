@@ -1,4 +1,4 @@
-function goToItemPage(number){
-    window.location.href = '/../itemView.html';
+function goToItemPage(id){
+    window.location.href = '/../itemView.html?id=' + id;
     console.log('lmao');
 }

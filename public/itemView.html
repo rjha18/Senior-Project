@@ -3,12 +3,12 @@
         <link rel="stylesheet" href="styles/itemDetail.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>
+    <body onload="fillPage()">
         <div class="row">
             <img src="Images/antisocial.jpg" class="col-6">
             <div id="details" class="col-6">
-                <h1>Shirt</h1>
-                <h4>25$</h4>
+                <h1 id="name"></h1>
+                <h4 id="price"></h4>
                 <form id="addToCart">
                     <br> <br>
                     <input type="button" onclick="submitForm()" value="Submit"/></form>

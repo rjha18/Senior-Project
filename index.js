@@ -31,14 +31,41 @@ app.listen(8080, () => {
 })
 
 app.post('/apii/:data', function(req, res, next) {
+	var productList = ["m1s1s", "m1s1l"]
+	
 	req.body = JSON.parse(req.params.data);
-	const amount = req.body.ship;
-	const itemDescription = req.body.ship;
-	const cost = req.body.ship;
-	var jsonObject = {"amount": amount, "itemDescription": itemDescription, "cost": cost};
+	
+	var amount = req.body.number;
+	const itemDescription = req.body.id;
+	var cost = req.body.price;
+
+	console.log("Cookies: ", req.cookies.cart);
+	var previousCookie = JSON.parse(req.cookies.cart);
+	console.log("cost=", previousCookie.cost);
+
+	cost += previousCookie.cost;
+
+	var previousAmount = previousCookie[itemDescription];
+	if (previousAmount) {
+		amount += previousAmount;
+	} 
+
+	var jsonObject = {};
+	jsonObject[itemDescription] = amount;
+	jsonObject["cost"] = cost;
+	for (var i = 0; i < productList.length; i++)
+	{
+		console.log(productList[i]+itemDescription);
+		if (!(productList[i] === itemDescription) && previousCookie[productList[i]]) 
+		{
+			jsonObject[productList[i]] = previousCookie[productList[i]];
+		}
+	}
+	
 	var jsonString = JSON.stringify(jsonObject);
 	console.log(jsonString);
-	res.cookie(
+	res.cookie
+	(
 		'cart', 
 		jsonString,
 		{maxAge: 30 * 60 * 1000}

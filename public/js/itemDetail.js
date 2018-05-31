@@ -1,38 +1,55 @@
 var amount = 25;
 var id = '2s';
 
+function fillPage() {
+    var URLid = getQueryVariable("id");
+    console.log(URLid)
+    if (URLid) {
+        id = URLid;
+        if (id == "m1s1s") {
+            amount = 25;
+            setName("Migration 1 | Shirt 1 | Shortsleeve");
+            setPrice(amount);
+            //setImage();
+        } else if (id == "m1s1l"){
+            amount = 30;
+            setName("Migration 1 | Shirt 1 | Longsleeve");
+            setPrice(amount);
+            //setImage();
+        } else {
+            //throw error
+        }
+    }
+}
+
+function getQueryVariable(variable)
+{
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i=0;i<vars.length;i++) {
+            var pair = vars[i].split("=");
+            if(pair[0] == variable){return pair[1];}
+    }
+    return(false);
+}
+
+function setName(name) 
+{
+    var nameDiv = document.getElementById("name");
+    nameDiv.innerHTML = name;
+}
+
+function setPrice(price) 
+{
+    var priceDiv = document.getElementById("price");
+    priceDiv.innerHTML = "$" + price;
+}
+
 var form = document.getElementById("addToCart");
 function submitForm() {
-    price(amount);
-    description(id);
-    number(1);
-    var obj = JSON.stringify({'ship': 'coat'});
+    var obj = JSON.stringify({"id": id, "price": amount, "number": 1});
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/apii/' + obj);
     xhr.send(obj);
-    // window.location.href = '/../cart.html';
-}
-
-function price(price) {
-    var price = document.createElement('input');
-    price.setAttribute('type', 'hidden');
-    price.setAttribute('name', 'price');
-    price.setAttribute('value', amount);
-    form.appendChild(price);
-}
-
-function description(itemDescription) {
-    var description = document.createElement('input');
-    description.setAttribute('type', 'hidden');
-    description.setAttribute('name', 'itemDescription');
-    description.setAttribute('value', itemDescription);
-    form.appendChild(description);
-}
-
-function number(numberOfItems) {
-    var number = document.createElement('input');
-    number.setAttribute('type', 'hidden');
-    number.setAttribute('name', 'amount');
-    number.setAttribute('value', numberOfItems);
-    form.appendChild(number);
+    window.location.href = '/../cart.html';
 }
