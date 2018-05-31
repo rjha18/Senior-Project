@@ -30,14 +30,14 @@ app.listen(8080, () => {
 	console.log('listening on port 8080');
 })
 
-app.post('/apii', function(req, res, next) {
-	const amount = req.body.amount;
-	const itemDescription = JSON.parse(req.body.ship);
-	console.log(itemDescription);
-	const cost = req.body.price;
+app.post('/apii/:data', function(req, res, next) {
+	req.body = JSON.parse(req.params.data);
+	const amount = req.body.ship;
+	const itemDescription = req.body.ship;
+	const cost = req.body.ship;
 	var jsonObject = {"amount": amount, "itemDescription": itemDescription, "cost": cost};
 	var jsonString = JSON.stringify(jsonObject);
-	console.log("bb" + jsonString);
+	console.log(jsonString);
 	res.cookie(
 		'cart', 
 		jsonString,
