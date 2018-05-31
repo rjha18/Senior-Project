@@ -1,0 +1,56 @@
+<html>
+  <head>
+      <link rel="stylesheet" href="styles/checkout.css">
+  </head>
+  <body>
+    <script src="https://js.stripe.com/v3/"></script>    
+    
+    <form action="/api" method="post" id="payment-form">
+      <div class="form-row">
+        <section>
+          <h2>Shipping &amp; Billing Information</h2>
+          <fieldset class="with-state">
+            <label>
+              <span>Name</span>
+              <input name="name" class="field" placeholder="Jenny Rosen" required>
+            </label>
+            <label>
+              <span>Email</span>
+              <input name="email" type="email" class="field" placeholder="jenny@example.com" required>
+            </label>
+            <label>
+              <span>Address</span>
+              <input name="address" class="field" placeholder="185 Berry Street Suite 550">
+            </label>
+            <label>
+              <span>City</span>
+              <input name="city" class="field" placeholder="San Francisco">
+            </label>
+            <label class="state">
+              <span>State</span>
+              <input name="state" class="field" placeholder="CA">
+            </label>
+            <label class="zip">
+              <span>ZIP</span>
+              <input name="postal_code" class="field" placeholder="94107">
+            </label>
+          </fieldset>
+        </section>
+        
+        <label for="card-element">
+          Credit or debit card
+        </label>
+        <div id="card-element">
+          <!-- A Stripe Element will be inserted here. -->
+        </div>
+    
+        <!-- Used to display Element errors. -->
+        <div id="card-errors" role="alert"></div>
+      </div>
+    
+      <button>Submit Payment</button>
+    </form>
+
+    <script src="js/checkout.js"></script>
+  </body>
+</html>

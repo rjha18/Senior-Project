@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="styles/itemDetail.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="row">
+            <img src="Images/antisocial.jpg" class="col-6">
+            <div id="details" class="col-6">
+                <h1>Shirt</h1>
+                <h4>25$</h4>
+                <form id="addToCart" action="/apii" method="POST">
+                    <br> <br>
+                    <button onclick="submitForm()">Submit Button</button>
+                </form>
+                <select name="size" form="addToCart">
+                    <option value="Small">S</option>
+                    <option value="Medium">M</option>
+                    <option value="Large">L</option>
+                </select>
+            </div>
+        </div>
+        <script src="js/itemDetail.js"></script>
+    </body>
+</html>

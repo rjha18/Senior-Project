@@ -1,0 +1,38 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+#wrapper {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    min-height: 100%;
+}
+
+#field {
+    flex: 1 1 auto; 
+    border-bottom: 3px black groove;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.feather {
+    width: 36px;
+    height: 112px;
+    position: absolute;
+    cursor: pointer;
+}
+
+a {
+    position: absolute;
+}
+
+#logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -1,14 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="stylesheet" href="./src/Styles/main.css">
-	<title>Golf Wang</title>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
+
 <body>
-	<div id="app"></div>
-	<script src="./build/bundle.js"></script>
+    
+    <div id="wrapper">
+        <img id="logo" src="Images/MRBIRDLOGO.png" alt="">
+        <div id="field"></div>
+    </div>
+    <script>
+        function makeEaseOut(timing) {
+            return function(timeFraction) {
+                return 1 - timing(1 - timeFraction);
+            }
+        }
+
+        function quad(timeFraction) {
+            return Math.pow(timeFraction, 2);
+        }
+
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        
+        var field = document.getElementById("field");
+        function createFeather() {
+            var image = document.getElementById("logo");
+            var screenWidth = window.screen.availWidth;
+            var type = getRandomInt(1, 3);
+            var spawn = getRandomInt((screenWidth / 2) - (image.width / 2), (screenWidth / 2) + (image.width / 2));
+            var distance = getRandomInt(-spawn, screenWidth - spawn);
+            var ball = document.createElement('a');
+            var img = document.createElement("IMG");
+            
+            if (type == 1) {
+                ball.setAttribute("href", "shop.html");
+            }
+            
+            img.setAttribute("src", "Images/feather" + type + ".png");
+            img.setAttribute("class", "feather");
+            
+            ball.appendChild(img);
+            field.appendChild(ball);
+            
+            let height = field.clientHeight - img.clientHeight;
+            let width = distance;
+            
+            function animate({timing, draw, duration}) {
+
+            let start = performance.now();
+
+            requestAnimationFrame(function animate(time) {
+            // timeFraction goes from 0 to 1
+            let timeFraction = (time - start) / duration;
+            if (timeFraction > 1) timeFraction = 1;
+
+            // calculate the current animation state
+            let progress = timing(timeFraction);
+
+            draw(progress); // draw it
+
+            if (timeFraction < 1) {
+                requestAnimationFrame(animate);
+            }
+
+            });
+            }
+            
+            animate({
+                duration: 7000,
+                timing: makeEaseOut(quad),
+                draw: function(progress) {
+                    ball.style.top = height * progress + 'px'
+                }
+            });
+
+            animate({
+                duration: 7000,
+                timing: makeEaseOut(quad),
+                draw: function(progress) {
+                    ball.style.left = spawn + width * progress + "px"
+                }
+            });
+            setTimeout(function () {field.removeChild(ball)}, 8000);
+        }
+        setInterval (createFeather, 1000);
+    </script>
+    
+
 </body>
+
 </html>
