@@ -11,8 +11,8 @@ function submitForm() {
     
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/apii');
-    xhr.send(formData);
-    console.log('xd' + formData);
+    xhr.send(JSON.stringify(formData));
+    console.log('xd' + JSON.stringify(formData));
     window.location.href = '/../cart.html';
 }
 
