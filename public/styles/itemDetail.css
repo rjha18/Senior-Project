@@ -2,6 +2,24 @@
     box-sizing: border-box;
 }
 
+#logo {
+    max-width: 754;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#shoppingCart {
+    max-height: 30px;
+    max-width: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .row::after {
     content: "";
     clear: both;
@@ -34,4 +52,30 @@
 #details {
     text-align: center;
     vertical-align: center;
+}
+
+.button {
+    width: 100%;
+    background-color: black;
+    padding: 20px;
+    border: none;
+    font-size: 28px;
+    color: #FFFFFF;
+}
+
+select {
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 5px 35px 5px 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    height: 34px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+#cartInfo {
+    margin: 0 auto;
+    width: 300px;
 }

@@ -4,20 +4,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body onload="fillPage()">
+        <img id="logo" src="Images/MRBIRDLOGO.png" alt="">
+        <img id="shoppingCart" src="Images/shoppingcart.png" onclick="goToCart()">
         <div class="row">
             <img src="Images/antisocial.jpg" class="col-6">
             <div id="details" class="col-6">
                 <h1 id="name"></h1>
                 <h4 id="price"></h4>
-                <form id="addToCart">
-                    <br> <br>
-                    <input type="button" onclick="submitForm()" value="Submit"/></form>
-                </form>
-                <select name="size" form="addToCart">
-                    <option value="Small">S</option>
-                    <option value="Medium">M</option>
-                    <option value="Large">L</option>
-                </select>
+                <div id="cartInfo">
+                    <select name="size" id="size" form="addToCart">
+                        <option value="Small">S</option>
+                        <option value="Medium">M</option>
+                        <option value="Large">L</option>
+                    </select>
+                    <br>
+                    <button class="button" onclick="submitForm()">Add to Cart</button>
+                </div>
             </div>
         </div>
         <script src="js/itemDetail.js"></script>

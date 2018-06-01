@@ -4,23 +4,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>    
     <body>
-        <img id="logo" src="MRBIRDLOGO.png" alt="">
+        <img id="logo" src="Images/MRBIRDLOGO.png" alt="">
+        <img id="shoppingCart" src="Images/shoppingcart.png" onclick="goToCart()">
         
-        <button onclick="goToItemPage('m1s1s')">shirt 1</button>
-        <button onclick="goToItemPage('m1s1l')">shirt 2</button>
-        
-        <div class="shopGrid">
+        <div id="shopGrid">
+            <div class="item" onclick="goToItemPage('m1s1s')"></div>
+            <div class="item" onclick="goToItemPage('m1s1l')"></div>
             <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div> 
             <div class="item"></div>
         </div>
         <script src="js/shop.js"></script>

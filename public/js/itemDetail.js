@@ -45,11 +45,17 @@ function setPrice(price)
     priceDiv.innerHTML = "$" + price;
 }
 
-var form = document.getElementById("addToCart");
 function submitForm() {
-    var obj = JSON.stringify({"id": id, "price": amount, "number": 1});
+    var size = document.getElementById("size");
+    var selectedValue = size.options[size.selectedIndex].text;
+    var obj = JSON.stringify({"id": id+selectedValue, "price": amount, "number": 1});
+    console.log("id=" + id + selectedValue);
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/apii/' + obj);
     xhr.send(obj);
-    window.location.href = '/../cart.html';
+}
+
+function goToCart()
+{
+    window.location.href = '/cart.html';
 }

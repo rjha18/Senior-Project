@@ -1,69 +1,49 @@
-body, html {
-    height: 100%;
-    margin: 0;
-    /* The image used */
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    /* Full height */
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-size: cover;
-}
-
-@font-face {
-    font-family: canter;
-    src: url(../canter.otf);
-}
-
-
-.menu {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-ul {
-    color:rgb(3, 3, 3);
-    font-weight: 500;
-    list-style: none;
-    font-family: canter;
-    font-size: 25px;
-    padding-left: 0px;
-    margin: 0;
-}
-
-li a {
-    text-decoration: none;
-    color: black;
+#logo {
+    max-width: 754px;
+    height: auto;
     display: block;
-    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-li a:hover{
-    color:#ffffff;
-    background-color:rgba(77, 87, 114, 0.75);
-}
-
-p {
-    margin: 0;
-}
-
-.logo {
-    max-width: 700px;
-    max-height: 700px;
-}
-
-.shopGrid {
+#shopGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 200px);
+    grid-template-columns: 225px;
     grid-gap: 20px 20px;
     padding: 10px;
-    position: absolute;
-    width: 60%;
-    top: 20%;
-    right: 0%;
+    width: 50%;
+    margin: 0 auto;
+    justify-content: space-evenly;
+    max-width: 510px;
 }
+
+@media only screen and (min-width: 510px) {
+    #shopGrid {
+        display: grid;
+        grid-template-columns: 225px 225px;
+        grid-gap: 20px 20px;
+        padding: 10px;
+        left: 25%;
+        width: 50%;
+        justify-content: space-evenly;
+    }
+    #shoppingCart {
+        height: 40px;
+        width: 40px;
+    }
+    
+}
+
+#shoppingCart {
+    max-height: 30px;
+    max-width: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 
 .item {
     background-color: rgba(255, 255, 255, 0.8);
@@ -72,4 +52,9 @@ p {
     height: 300px;
     font-size: 30px;
     text-align: center;
+}
+
+.item:hover {
+    background-color: red;
+
 }

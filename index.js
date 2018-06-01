@@ -31,36 +31,42 @@ app.listen(8080, () => {
 })
 
 app.post('/apii/:data', function(req, res, next) {
-	var productList = ["m1s1s", "m1s1l"]
+	var productList = ["m1s1sS", "m1s1sM", "m1s1sL", "m1s1lS", "m1s1lS", "m1s1lM", "m1s1lL"];
 	
 	req.body = JSON.parse(req.params.data);
 	
 	var amount = req.body.number;
 	const itemDescription = req.body.id;
 	var cost = req.body.price;
-
-	console.log("Cookies: ", req.cookies.cart);
-	var previousCookie = JSON.parse(req.cookies.cart);
-	console.log("cost=", previousCookie.cost);
-
-	cost += previousCookie.cost;
-
-	var previousAmount = previousCookie[itemDescription];
-	if (previousAmount) {
-		amount += previousAmount;
-	} 
+	
 
 	var jsonObject = {};
-	jsonObject[itemDescription] = amount;
-	jsonObject["cost"] = cost;
-	for (var i = 0; i < productList.length; i++)
+
+	var previousCookie;
+	if (req.cookies.cart)
 	{
-		console.log(productList[i]+itemDescription);
-		if (!(productList[i] === itemDescription) && previousCookie[productList[i]]) 
+		console.log("Cookies: ", req.cookies.cart);
+		previousCookie = JSON.parse(req.cookies.cart);
+		console.log("cost=", previousCookie.cost);
+		cost += previousCookie.cost;
+		var previousAmount = previousCookie[itemDescription];
+		if (previousAmount) {
+			amount += previousAmount;
+		} 
+		for (var i = 0; i < productList.length; i++)
 		{
-			jsonObject[productList[i]] = previousCookie[productList[i]];
+			console.log(productList[i]+itemDescription);
+			if (!(productList[i] === itemDescription) && previousCookie[productList[i]]) 
+			{
+				jsonObject[productList[i]] = previousCookie[productList[i]];
+			}
 		}
 	}
+
+	jsonObject[itemDescription] = amount;
+	jsonObject["cost"] = cost;
+	
+
 	
 	var jsonString = JSON.stringify(jsonObject);
 	console.log(jsonString);
