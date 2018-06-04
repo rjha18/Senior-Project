@@ -1,15 +1,23 @@
-var obj = JSON.parse(decodeURIComponent(getCookie('cart')));
-var products = document.getElementById("products");
-for (var key in obj) {
-    if (obj.hasOwnProperty(key) && key != "cost") {
-        var currentPanel = document.getElementById("product");
-            
-        console.log(currentPanel);
-        loadThenCloneFirst(key, obj[key], currentPanel);  
+var cookie = getCookie('cart');
+console.log(cookie);
+if (!cookie || decodeURIComponent(cookie) === "{}")
+{
+    emptyCart();
+} else {
+    var obj = JSON.parse(decodeURIComponent(cookie));
+    var products = document.getElementById("products");
+    for (var key in obj) {
+        if (obj.hasOwnProperty(key) && key != "cost") {
+            var currentPanel = document.getElementById("product");
+                
+            console.log(currentPanel);
+            loadThenCloneFirst(key, obj[key], currentPanel, products);  
+        }
     }
+    document.getElementById("product").remove();
+    updateCartCost();
+
 }
-document.getElementById("product").remove();
-updateCartCost();
 
 function getCookie(name) 
 {
@@ -53,16 +61,22 @@ function loadThenCloneFirst(id, value, object, products) {
     {
         size = "Large";
     }
-
-    datapoints[0].innerHTML = productName;
-    datapoints[1].innerHTML = size;
-    datapoints[2].innerHTML = value;
-    datapoints[3].innerHTML = "$" + (value * price);
-    datapoints[4].innerHTML = "$" + price;
+    datapoints[0].src = "Images/"+id.substring(0,id.length-1)+".jpg";
+    datapoints[1].innerHTML = productName;
+    datapoints[2].innerHTML = size;
+    datapoints[3].innerHTML = value;
+    datapoints[4].innerHTML = "$" + (value * price);
+    datapoints[5].innerHTML = "$" + price;
 
     var cln = object.cloneNode(true);
+    var adjusts = object.getElementsByClassName("qty");
+    console.log("adjusts", adjusts);
+    adjusts[0].onclick = function () {decrement(adjusts[1], price, datapoints[4], id)};
+    adjusts[2].onclick = function () {increment(adjusts[1], price, datapoints[4], id)};
+
     document.getElementById("products").appendChild(cln);
     object.setAttribute("id", id);
+    
 }
 
 function updateCartCost() 
@@ -75,4 +89,52 @@ function updateCartCost()
     }
     
     document.getElementById("totalCost").innerHTML = "$" + totalCost;
+
+
+}
+
+function increment(count, price, totalCost, id)
+{
+    count.innerHTML = parseInt(count.innerHTML, 10) + 1;
+    totalCost.innerHTML = "$" + (parseInt(totalCost.innerHTML.substring(1), 10) + price);
+    updateCartCost();
+    updateCookie(1, id, price);
+}
+
+function decrement(count, price, totalCost, id) 
+{
+    count.innerHTML = parseInt(count.innerHTML, 10) - 1;
+    totalCost.innerHTML = "$" + (parseInt(totalCost.innerHTML.substring(1), 10) - price);
+    updateCartCost();
+    updateCookie(-1, id, price);
+    if (count.innerHTML <= 0)
+    {
+        removePanel(id);
+    }
+}
+
+function updateCookie(change, id, price) 
+{
+    var obj = JSON.stringify({"id": id, "price": price, "number": change});
+    console.log("update id=" + id + price);
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/apii/' + obj);
+    xhr.send(obj);
+}
+
+function removePanel(id) 
+{
+    var list = document.getElementById("products");
+    document.getElementById(id).remove();
+}
+
+function emptyCart() 
+{
+    document.getElementById("product").setAttribute("hidden", true);
+    document.getElementById("site-footer").setAttribute("hidden", true);
+}
+
+function goToHome()
+{
+    window.location.href = '/';
 }

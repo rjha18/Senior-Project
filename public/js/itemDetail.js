@@ -1,26 +1,28 @@
 var amount = 25;
 var id = '2s';
 
-function fillPage() {
-    var URLid = getQueryVariable("id");
-    console.log(URLid)
-    if (URLid) {
-        id = URLid;
-        if (id == "m1s1s") {
-            amount = 25;
-            setName("Migration 1 | Shirt 1 | Shortsleeve");
-            setPrice(amount);
-            //setImage();
-        } else if (id == "m1s1l"){
-            amount = 30;
-            setName("Migration 1 | Shirt 1 | Longsleeve");
-            setPrice(amount);
-            //setImage();
-        } else {
-            //throw error
-        }
+var URLid = getQueryVariable("id");
+if (URLid) {
+    id = URLid;
+    document.getElementById("product").src = "Images/"+id+".jpg";
+    if (id == "m1s1s") {
+        amount = 25;
+        setName("Migration 1 | Shirt 1 | Shortsleeve");
+        setPrice(amount);
+        //setImage();
+    } else if (id == "m1s1l"){
+        amount = 30;
+        setName("Migration 1 | Shirt 1 | Longsleeve");
+        setPrice(amount);
+        //setImage();
+    } else {
+        amount = 25;
+        setName("Migration 1 | Shirt 1 | Shortsleeve");
+        setPrice(amount);
+        //throw error
     }
 }
+
 
 function getQueryVariable(variable)
 {
@@ -49,13 +51,28 @@ function submitForm() {
     var size = document.getElementById("size");
     var selectedValue = size.options[size.selectedIndex].text;
     var obj = JSON.stringify({"id": id+selectedValue, "price": amount, "number": 1});
-    console.log("id=" + id + selectedValue);
+    console.log("objj" + obj);
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/apii/' + obj);
     xhr.send(obj);
+    displayMessage();
 }
 
 function goToCart()
 {
     window.location.href = '/cart.html';
+}
+
+function displayMessage() 
+{
+    var messageBar = document.getElementById("message");
+    messageBar.parentElement.removeAttribute("hidden");
+    setTimeout(function () {
+        messageBar.parentElement.setAttribute("hidden", true);
+    }, 3000);
+    window.scrollTo(0,document.body.scrollHeight);    
+}
+function goToHome()
+{
+    window.location.href = '/';
 }

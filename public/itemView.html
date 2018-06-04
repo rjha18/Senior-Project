@@ -3,11 +3,14 @@
         <link rel="stylesheet" href="styles/itemDetail.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body onload="fillPage()">
-        <img id="logo" src="Images/MRBIRDLOGO.png" alt="">
-        <img id="shoppingCart" src="Images/shoppingcart.png" onclick="goToCart()">
+    <body>
+        <img id="logo" src="Images/MRBIRDLOGO.png" onclick="goToHome()">
+        <div id="links">
+                <img id="shoppingCart" src="Images/shoppingcart.png" onclick="goToCart()">
+                <a id="shopLink" href="/shop.html">SHOP</a>
+        </div>
         <div class="row">
-            <img src="Images/antisocial.jpg" class="col-6">
+            <img src="" id="product" class="col-6">
             <div id="details" class="col-6">
                 <h1 id="name"></h1>
                 <h4 id="price"></h4>
@@ -21,6 +24,10 @@
                     <button class="button" onclick="submitForm()">Add to Cart</button>
                 </div>
             </div>
+        </div>
+        
+        <div id="boughtText" hidden>
+            <h2 id="message">Added to cart! Press again to add another.</h2>
         </div>
         <script src="js/itemDetail.js"></script>
     </body>

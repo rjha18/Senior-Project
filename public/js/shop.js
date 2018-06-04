@@ -8,3 +8,8 @@ function goToCart()
 {
     window.location.href = '/cart.html';
 }
+
+function goToHome()
+{
+    window.location.href = '/';
+}

@@ -1,17 +1,25 @@
 <html>
     <head>    
-        <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/shop.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>    
     <body>
-        <img id="logo" src="Images/MRBIRDLOGO.png" alt="">
-        <img id="shoppingCart" src="Images/shoppingcart.png" onclick="goToCart()">
+        <img id="logo" src="Images/MRBIRDLOGO.png" onclick="goToHome()">
+        <div id="links">
+            <img id="shoppingCart" src="Images/shoppingcart.png" onclick="goToCart()">
+            <a id="shopLink" href="/shop.html">SHOP</a>
+        </div>
         
         <div id="shopGrid">
-            <div class="item" onclick="goToItemPage('m1s1s')"></div>
-            <div class="item" onclick="goToItemPage('m1s1l')"></div>
-            <div class="item"></div>
-            <div class="item"></div>
+            <div class="item" onclick="goToItemPage('m1s1s')">
+                <img src="Images/m1s1s.jpg" alt="">
+            </div>
+            <div class="item" onclick="goToItemPage('m1s1l')">
+                <img src="Images/m1s1l.jpg" alt="">
+            </div>
+            <div class="item" onclick="goToItemPage('m1s2s')">
+                <img src="Images/m1s2s.jpg" alt="">
+            </div>
         </div>
         <script src="js/shop.js"></script>
     </body>
