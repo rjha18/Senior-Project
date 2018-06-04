@@ -2,17 +2,17 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
-const api = require('./routes');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 var cookieSession = require('cookie-session');
 var productList = ["m1s1sS", "m1s1sM", "m1s1sL", "m1s1lS", "m1s1lS", "m1s1lM", "m1s1lL", "m1s2sS", "m1s2sM", "m1s2sL" ];
 
-var stripe = require("stripe")("sk_test_Pl4gjoJdItwiKt5pix5OvPTI");
+
+var stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 app.use (cookieSession({
 	name: 'session',
-	secret: 'lmao',
+	secret: process.env.COOKIE_SECRET,
 }))
 
 app.use(logger('dev'));
@@ -21,7 +21,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use('/', express.static(path.join(__dirname, 'public')));
-app.use('/api', api);
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');

@@ -166,6 +166,7 @@ button:active {
     height: 80px;
     background-color: green;
     text-align: center;
+    color: white;
 }
 
 h2 {

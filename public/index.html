@@ -8,13 +8,13 @@
 <body>
     <div class="row">
         <div class="column">
-            <img id="logo" src="Images/Asset 1.png">
-        </div>
-        <div class="column">
-            <img src="Images/Asset 2.png">
+            <img id="logo" src="Images/Asset 2.png">
         </div>
         <div class="column">
             <img src="Images/Asset 3.png">
+        </div>
+        <div class="column">
+            <img src="Images/Asset 1.png">
         </div>
     </div>
 
@@ -47,10 +47,10 @@
             var img = document.createElement("IMG");
             var spawn = 0;
 
-            if (type <= 3) {
+            if (type > 6) {
                 ball.setAttribute("href", "shop.html");
                 spawn = Math.floor(screenWidth / 6);
-            } else if (type <= 6) {
+            } else if (type > 3) {
                 ball.setAttribute("href", "https://www.instagram.com/mr.b1rd/");
                 spawn = Math.floor(screenWidth / 2);
             } else {
@@ -106,7 +106,7 @@
             });
             setTimeout(function () { field.removeChild(ball) }, 8000);
         }
-        setInterval(createFeather, 300);
+        setInterval(createFeather, 200);
     </script>
 
 
