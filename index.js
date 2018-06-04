@@ -26,7 +26,7 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.set('trust proxy', 1);
 
-app.listen(8080, () => {
+app.listen(process.env.PORT || 8080, () => {
 	console.log('listening on port 8080');
 })
 
