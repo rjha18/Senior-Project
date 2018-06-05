@@ -1,4 +1,4 @@
-var stripe = Stripe('pk_live_G0AYuUHSScmRfkqEgp8jPf7y');
+var stripe = Stripe('sk_live_QFEEayDyVpuMgRMEmqkR1Xjb');
 var elements = stripe.elements();
 // Custom styling can be passed to options when creating an Element.
 var style = {
@@ -12,6 +12,12 @@ var style = {
 // Create an instance of the card Element.
 var card = elements.create('card', { style: style });
 
+function checkEnter(e){
+    e = e || event;
+    var txtArea = /textarea/i.test((e.target || e.srcElement).tagName);
+    return txtArea || (e.keyCode || e.which || e.charCode || 0) !== 13;
+   }
+
 // Add an instance of the card Element into the `card-element` <div>.
 card.mount('#card-element');
 card.addEventListener('change', function (event) {
@@ -23,9 +29,11 @@ card.addEventListener('change', function (event) {
     }
 });
 
-var form = document.getElementById('payment-form');
 var clientData = {};
-form.addEventListener('submit', function (event) {
+function startSubmit() {
+    var b = document.getElementById("submit");
+    b.disabled = true;
+    b.innerHTML = 'Submitting';
     event.preventDefault();
     clientData = {
         "name": document.getElementById("name").value,
@@ -54,7 +62,7 @@ form.addEventListener('submit', function (event) {
                 clientData["name"]);
         }
     });
-});
+}
 
 function submitForm(token, line1, city, state, postal_code, email, country, name) {
     var obj = JSON.stringify({
@@ -100,3 +108,9 @@ function goToHome()
 {
     window.location.href = '/';
 }
+
+function goToCart()
+{
+    window.location.href = '/cart.html';
+}
+
