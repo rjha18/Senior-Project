@@ -1,96 +1,100 @@
 <html>
-  <head>
-      <link rel="stylesheet" href="styles/checkout.css">
-  </head>
-  <body>
-    <script src="https://js.stripe.com/v3/"></script>    
-    
-    <img id="logo" src="Images/MRBIRDLOGO.png" onclick="goToHome()">
-    <div id="links">
-        <img id="shoppingCart" src="Images/shoppingcart.png" onclick="goToCart()">
-        <a id="shopLink" href="/shop.html">SHOP</a>
-    </div>
-    <form action="/api" method="post" id="payment-form">
-      <div class="form-row">
-        <section class="shipping">
-          <h2>Shipping &amp; Billing Information</h2>
-          <fieldset class="with-state">
-            <label>
-              <span>Name</span>
-              <input id="name" class="field" placeholder="Mr. Bird" required>
-            </label>
-            <label>
-              <span>Email</span>
-              <input id="email" type="email" class="field" placeholder="mrbird@freebird.com" required>
-            </label>
-            <label>
-              <span>Address</span>
-              <input id="address" class="field" placeholder="12345 The Sky" required>
-            </label>
-            <label>
-              <span>City</span>
-              <input id="city" class="field" placeholder="Sumner" required>
-            </label>
-            <label class="state">
-              <span>State</span>
-              <input id="state" class="field" placeholder="WA" required>
-            </label>
-            <label class="zip">
-              <span>ZIP</span>
-              <input id="postal_code" class="field" placeholder="54321" required>
-            </label>
-            <label class="select">
-                <span>Country</span>
-                <div id="country" class="field US">
-                  <select name="country">
-                    <option value="AU">Australia</option>
-                    <option value="AT">Austria</option>
-                    <option value="BE">Belgium</option>
-                    <option value="BR">Brazil</option>
-                    <option value="CA">Canada</option>
-                    <option value="CN">China</option>
-                    <option value="DK">Denmark</option>
-                    <option value="FI">Finland</option>
-                    <option value="FR">France</option>
-                    <option value="DE">Germany</option>
-                    <option value="HK">Hong Kong</option>
-                    <option value="IE">Ireland</option>
-                    <option value="IT">Italy</option>
-                    <option value="JP">Japan</option>
-                    <option value="LU">Luxembourg</option>
-                    <option value="MX">Mexico</option>
-                    <option value="NL">Netherlands</option>
-                    <option value="NZ">New Zealand</option>
-                    <option value="NO">Norway</option>
-                    <option value="PT">Portugal</option>
-                    <option value="SG">Singapore</option>
-                    <option value="ES">Spain</option>
-                    <option value="SE">Sweden</option>
-                    <option value="CH">Switzerland</option>
-                    <option value="GB">United Kingdom</option>
-                    <option value="US" selected="selected">United States</option>
-                  </select>
-                </div>
-              </label>
-          </fieldset>
-        </section>
-        
-        <h2 for="card-element">
-          Credit or debit card
-        </h2>
-        <div id="card-element">
-          <!-- A Stripe Element will be inserted here. -->
-        </div>
-    
-        <!-- Used to display Element errors. -->
-        <div id="card-errors" role="alert"></div>
+
+<head>
+  <link rel="stylesheet" href="styles/checkout.css">
+</head>
+
+<body>
+  <script src="https://js.stripe.com/v3/"></script>
+
+
+  <img id="logo" src="Images/MRBIRDLOGO.png" onclick="goToHome()">
+  <div id="links">
+    <img id="shoppingCart" src="Images/shoppingcart.png" onclick="goToCart()">
+    <a id="shopLink" href="/shop.html">SHOP</a>
+  </div>
+  <div id="payment-form">
+    <div class="form-row">
+      <section class="shipping">
+        <h2>Shipping &amp; Billing Information</h2>
+        <fieldset class="with-state">
+          <label>
+            <span>Name</span>
+            <input id="name" class="field" placeholder="Mr. Bird" required>
+          </label>
+          <label>
+            <span>Email</span>
+            <input id="email" type="email" class="field" placeholder="mrbird@freebird.com" required>
+          </label>
+          <label>
+            <span>Address</span>
+            <input id="address" class="field" placeholder="12345 The Sky" required>
+          </label>
+          <label>
+            <span>City</span>
+            <input id="city" class="field" placeholder="Sumner" required>
+          </label>
+          <label class="state">
+            <span>State</span>
+            <input id="state" class="field" placeholder="WA" required>
+          </label>
+          <label class="zip">
+            <span>ZIP</span>
+            <input id="postal_code" class="field" placeholder="54321" required>
+          </label>
+          <label class="select">
+            <span>Country</span>
+            <div id="country" class="field US">
+              <select name="country">
+                <option value="AU">Australia</option>
+                <option value="AT">Austria</option>
+                <option value="BE">Belgium</option>
+                <option value="BR">Brazil</option>
+                <option value="CA">Canada</option>
+                <option value="CN">China</option>
+                <option value="DK">Denmark</option>
+                <option value="FI">Finland</option>
+                <option value="FR">France</option>
+                <option value="DE">Germany</option>
+                <option value="HK">Hong Kong</option>
+                <option value="IE">Ireland</option>
+                <option value="IT">Italy</option>
+                <option value="JP">Japan</option>
+                <option value="LU">Luxembourg</option>
+                <option value="MX">Mexico</option>
+                <option value="NL">Netherlands</option>
+                <option value="NZ">New Zealand</option>
+                <option value="NO">Norway</option>
+                <option value="PT">Portugal</option>
+                <option value="SG">Singapore</option>
+                <option value="ES">Spain</option>
+                <option value="SE">Sweden</option>
+                <option value="CH">Switzerland</option>
+                <option value="GB">United Kingdom</option>
+                <option value="US" selected="selected">United States</option>
+              </select>
+            </div>
+          </label>
+        </fieldset>
+      </section>
+
+      <h2 for="card-element">
+        Credit or debit card
+      </h2>
+      <div id="card-element">
+        <!-- A Stripe Element will be inserted here. -->
       </div>
-    
-      <button>Submit Payment</button>
-    </form>
-    <div id="serverErrors" hidden>
-      <h2 id="errorInfo">error</h2>
+
+      <!-- Used to display Element errors. -->
+      <div id="card-errors" role="alert"></div>
     </div>
-    <script src="js/checkout.js"></script>
-  </body>
+
+    <button id="submit" onclick="startSubmit()">Submit Payment</button>
+  </div>
+  <div id="serverErrors" hidden>
+    <h2 id="errorInfo">error</h2>
+  </div>
+  <script src="js/checkout.js"></script>
+</body>
+
 </html>
