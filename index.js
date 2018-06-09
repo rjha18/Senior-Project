@@ -12,7 +12,7 @@ var stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 app.use (cookieSession({
 	name: 'session',
-	secret: process.env.COOKIE_SECRET,
+	secret: 'process.env.COOKIE_SECRET',
 }))
 
 app.use(logger('dev'));
