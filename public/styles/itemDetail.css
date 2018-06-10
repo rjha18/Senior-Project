@@ -159,13 +159,11 @@ button:active {
 }
 
 #boughtText {
-    color: white;
     position: absolute;
     right: 0;
     bottom: 0;
     left: 0;
     height: 80px;
-    background-color: green;
     text-align: center;
 
 }
@@ -178,7 +176,3 @@ h2 {
     font-size: 13px;
     font-weight: 500;
   }
-
-.row img {
-    border-style: groove;
-}

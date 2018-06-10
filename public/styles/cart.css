@@ -93,8 +93,11 @@ a {
 	display: block;
 }
 
+.product header {
+	float: left;
+} 
 
-.product header, .product .content {
+.product .content {
 	background-color: #fff;
 	border: 1px solid #ccc;
 	border-style: none none solid none;
@@ -102,7 +105,7 @@ a {
 }
 
 .product header {
-	background: white;
+	background: black;
 	margin: 0 1% 20px 0;
 	overflow: hidden;
 	padding: 0;
@@ -112,7 +115,6 @@ a {
 }
 
 .product header:hover {
-	background-color: white;
 	margin-right: auto;
 	margin-left: auto;
 	filter: invert(100%);
