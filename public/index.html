@@ -9,13 +9,19 @@
 <body>
     <div class="row">
         <div class="column">
-            <img id="logo" src="Images/Asset 2.png">
+            <a href="shop.html">
+                <img id="logo" src="Images/Asset 2.png">
+            </a>
         </div>
         <div class="column">
-            <img src="Images/Asset 3.png">
+            <a href="https://www.instagram.com/mr.b1rd/">
+                <img src="Images/Asset 3.png">
+            </a>
         </div>
         <div class="column">
-            <img src="Images/Asset 1.png">
+            <a href="http://www.reifelbirdsanctuary.com">
+                <img src="Images/Asset 1.png">
+            </a>
         </div>
     </div>
 
@@ -24,6 +30,17 @@
         <div id="field"></div>
     </div>
     <script>
+        function myFunction(x) {
+            if (x.matches) { // If media query matches
+                clearInterval(feathers);
+            } else {
+            }
+        }
+
+        var x = window.matchMedia("(max-width: 500px)")
+        myFunction(x) // Call listener function at run time
+        x.addListener(myFunction) // Attach listener function on state changes
+        
         function makeEaseOut(timing) {
             return function (timeFraction) {
                 return 1 - timing(1 - timeFraction);
@@ -55,7 +72,7 @@
                 ball.setAttribute("href", "https://www.instagram.com/mr.b1rd/");
                 spawn = Math.floor(screenWidth / 2);
             } else {
-                ball.setAttribute("href", "");
+                ball.setAttribute("href", "http://www.reifelbirdsanctuary.com");
                 spawn = Math.floor(5 * screenWidth / 6);
             }
             console.log(spawn);
@@ -107,7 +124,7 @@
             });
             setTimeout(function () { field.removeChild(ball) }, 8000);
         }
-        setInterval(createFeather, 200);
+        var feathers = setInterval(createFeather, 200);
     </script>
 
 
