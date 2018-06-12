@@ -1,4 +1,4 @@
-var stripe = Stripe('***REMOVED***');
+var stripe = Stripe('pk_live_8NWtBaZPTXhOlgFotbdEOOd3');
 var elements = stripe.elements();
 // Custom styling can be passed to options when creating an Element.
 var style = {
