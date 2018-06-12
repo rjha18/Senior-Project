@@ -51,7 +51,6 @@ function startSubmit() {
             var errorElement = document.getElementById('card-errors');
             errorElement.textContent = result.error.message;
         } else {
-            // Send the token to your server.
             submitForm(result.token,
                 clientData["address_line1"],
                 clientData["address_city"],
@@ -113,4 +112,3 @@ function goToCart()
 {
     window.location.href = '/cart.html';
 }
-
