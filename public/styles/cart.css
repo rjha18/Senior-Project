@@ -177,7 +177,7 @@ body {
 	transition: margin 0.15s linear;
 }
 
-@media (max-width: 900px) 
+@media only screen and (max-width: 900px) 
 {
     article header
     {

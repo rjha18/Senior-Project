@@ -205,5 +205,5 @@ app.post('/api/:data', function handleReq(req, res, next) {
 
 function goToHome()
 {
-    window.location.href = '/';
+    window.location.href = '/home.html';
 }

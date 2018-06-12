@@ -74,5 +74,5 @@ function displayMessage()
 }
 function goToHome()
 {
-    window.location.href = '/';
+    window.location.href = '/home.html';
 }
