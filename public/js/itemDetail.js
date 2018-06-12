@@ -66,9 +66,9 @@ function goToCart()
 function displayMessage() 
 {
     var messageBar = document.getElementById("message");
-    messageBar.parentElement.removeAttribute("hidden");
+    messageBar.removeAttribute("hidden");
     setTimeout(function () {
-        messageBar.parentElement.setAttribute("hidden", true);
+        messageBar.setAttribute("hidden", true);
     }, 3000);
     window.scrollTo(0,document.body.scrollHeight);    
 }

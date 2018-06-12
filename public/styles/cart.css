@@ -30,14 +30,23 @@ body {
 	max-width: 150px;
 }
 
-a {
+#links a {
 	color: #000;
 	text-decoration: none;
+	border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 5px;
 	-webkit-transition: color 0.2s linear;
 	-moz-transition: color 0.2s linear;
 	-ms-transition: color 0.2s linear;
 	-o-transition: color 0.2s linear;
 	transition: color 0.2s linear;
+}
+
+#links a:hover {
+    background-color: rgb(77, 77, 77);
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .container {
@@ -59,19 +68,6 @@ a {
 	margin: 0;
 }
 
-#cart a {
-	color: black;
-	text-decoration: none;
-	-webkit-transition: color 0.2s linear;
-	-moz-transition: color 0.2s linear;
-	-ms-transition: color 0.2s linear;
-	-o-transition: color 0.2s linear;
-	transition: color 0.2s linear;
-}
-
-#cart a:hover {
-	color: #000;
-}
 
 .product {
 	border: 1px solid #eee;
@@ -93,15 +89,18 @@ a {
 	display: block;
 }
 
-.product header {
-	float: left;
-} 
-
 .product .content {
 	background-color: #fff;
 	border: 1px solid #ccc;
 	border-style: none none solid none;
 	float: left;
+	display: block;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	height: 140px;
+	padding: 0 20px;
+	width: 75%;
+	padding-bottom: 6px;
 }
 
 .product header {
@@ -112,6 +111,7 @@ a {
 	position: relative;
 	width: 24%;
 	height: 189px;
+	float: left;
 }
 
 .product header:hover {
@@ -143,16 +143,6 @@ a {
 	transition: bottom 0.2s linear;
 }
 
-.product .content {
-	display: block;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	height: 140px;
-	padding: 0 20px;
-	width: 75%;
-	padding-bottom: 6px;
-}
-
 .product h1 {
 	color: #7d8584;
 	font-size: 25px;
@@ -160,13 +150,7 @@ a {
 	margin: 17px 0 0 0;
 }
 
-.product footer.content {
-	height: 50px;
-	margin: 0;
-	padding: 0;
-}
-
-.product footer .price {
+#costs .price {
 	background: #fcfcfc;
 	color: #000;
 	float: right;
@@ -177,7 +161,7 @@ a {
 	padding: 0 30px;
 }
 
-.product footer .full-price {
+#costs .full-price {
 	background: #7d8584;
 	color: #fff;
 	float: right;
@@ -348,19 +332,7 @@ ul {
     margin-left: auto;
     margin-right: auto;
 }
-a {
-    color: black;
-    text-decoration: none;
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 5px;
-}
 
-a:hover {
-    background-color: rgb(77, 77, 77);
-    color: white;
-    text-decoration: none;
-    cursor: pointer;
-}
 
 .total {
 	margin-bottom: 0px;
@@ -368,4 +340,37 @@ a:hover {
 .shipping {
 	margin-top: 8px;
 	padding-bottom: 2px;
+}
+
+
+#copyright {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    /* establish flex container */
+    flex-direction: row;
+    font-size: 8pt;
+}
+
+#copyright p {
+    margin: 0;
+    padding-right: 5px;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    bottom: 20px;
+    width: 100%;
+    right: 0px;
+    margin-bottom: -5px;
+    position: absolute;
+    height: 80px;
+}
+
+footer img {
+    width: 25px;
+    height: 25px;
 }

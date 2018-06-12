@@ -1,0 +1,9 @@
+html{
+    height: 100%;
+    overflow: hidden;
+    background-image: url('../Images/background.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    cursor: pointer;
+}

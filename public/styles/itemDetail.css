@@ -5,11 +5,13 @@
 
 html {
     position: relative;
-    margin-top: 10px;
-    margin-top: 50px;
     padding-bottom: 6rem;
     min-height: 100%;
     background: white;
+}
+
+body {
+    margin: 0px;
 }
 
 #logo {
@@ -17,6 +19,7 @@ html {
     height: auto;
     width: 100%;
     display: block;
+    margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -30,25 +33,26 @@ html {
     margin-right: auto;
     margin-top: 20px;
     margin-bottom: 10px;
-    display: flex;              /* establish flex container */
-    flex-direction: column; 
-    box-sizing:none;
+    display: flex;
+    /* establish flex container */
+    flex-direction: column;
+    box-sizing: none;
 }
 
 #shoppingCart {
-    height: 36px;
-    width: 36px;
+    height: 30px;
+    width: 30px;
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 2px;
     margin-left: auto;
     margin-right: auto;
 }
 
-#shoppingCart:hover{
+#shoppingCart:hover {
     background-color: rgb(185, 185, 185);
     border: 1px solid rgba(255, 255, 255, 0.8);
-    filter:invert(100%);
-    cursor:pointer;  
+    filter: invert(100%);
+    cursor: pointer;
 }
 
 #shopLink {
@@ -58,23 +62,22 @@ html {
     margin-bottom: 25px;
 }
 
-a {
+#links a {
     color: black;
     text-decoration: none;
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 5px;
 }
 
-a:hover 
-{
-    background-color:  rgb(77, 77, 77);
-    color:white; 
-    text-decoration:none; 
-    cursor:pointer;  
+#links a:hover {
+    background-color: rgb(77, 77, 77);
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .row {
-    display:block;
+    display: block;
 }
 
 .row::after {
@@ -89,30 +92,50 @@ a:hover
     width: 100%;
 }
 
-
 @media only screen and (min-width: 768px) {
     /* For desktop: */
-    .col-1 {width: 8.33%;}
-    .col-2 {width: 16.66%;}
-    .col-3 {width: 25%;}
-    .col-4 {width: 33.33%;}
-    .col-5 {width: 41.66%;}
-    .col-6 {width: 50%;}
-    .col-7 {width: 58.33%;}
-    .col-8 {width: 66.66%;}
-    .col-9 {width: 75%;}
-    .col-10 {width: 83.33%;}
-    .col-11 {width: 91.66%;}
-    .col-12 {width: 100%;}
+    .col-1 {
+        width: 8.33%;
+    }
+    .col-2 {
+        width: 16.66%;
+    }
+    .col-3 {
+        width: 25%;
+    }
+    .col-4 {
+        width: 33.33%;
+    }
+    .col-5 {
+        width: 41.66%;
+    }
+    .col-6 {
+        width: 50%;
+    }
+    .col-7 {
+        width: 58.33%;
+    }
+    .col-8 {
+        width: 66.66%;
+    }
+    .col-9 {
+        width: 75%;
+    }
+    .col-10 {
+        width: 83.33%;
+    }
+    .col-11 {
+        width: 91.66%;
+    }
+    .col-12 {
+        width: 100%;
+    }
 }
 
 #details {
     display: block;
     text-align: center;
-    vertical-align: center;
 }
-
-
 
 select {
     margin-bottom: 20px;
@@ -144,28 +167,19 @@ button {
     outline: none;
     cursor: pointer;
     transition: all 0.15s ease;
-  }
-  
-
+}
 
 button:hover {
     transform: translateY(-1px);
-    box-shadow: 0 7px 14px 0 rgba(50, 50, 93, 0.1),
-    0 3px 6px 0 rgba(0, 0, 0, 0.08);
+    box-shadow: 0 7px 14px 0 rgba(50, 50, 93, 0.1), 0 3px 6px 0 rgba(0, 0, 0, 0.08);
 }
 
 button:active {
     background: #707070;
 }
 
-#boughtText {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: 80px;
-    text-align: center;
-
+#message {
+    margin-top: 20px; 
 }
 
 h2 {
@@ -175,4 +189,36 @@ h2 {
     letter-spacing: 0.3px;
     font-size: 13px;
     font-weight: 500;
-  }
+}
+
+#copyright {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    /* establish flex container */
+    flex-direction: row;
+    font-size: 8pt;
+}
+
+#copyright p {
+    margin: 0;
+    padding-right: 5px;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    bottom: 20px;
+    width: 100%;
+    right: 0px;
+    margin-bottom: -5px;
+    position: absolute;
+    height: 80px;
+}
+
+footer img {
+    width: 25px;
+    height: 25px;
+}
