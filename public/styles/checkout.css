@@ -12,7 +12,6 @@
   -webkit-text-size-adjust: none;
   box-sizing: border-box;
   font-family: Helvetica, Helvetica, sans-serif;
-  font-size: 15px;
   line-height: 1.4em;
 }
 
@@ -23,6 +22,10 @@ body {
   padding-bottom: 6rem;
   min-height: 100%;
   background: white;
+  background-image: url('https://media.giphy.com/media/vQ300zVAdhrJC/giphy.gif');
+  background-size: contain; 
+  background-position: center center; 
+  background-attachment: fixed;
 }
 
 #logo {
@@ -63,6 +66,38 @@ h2 {
   font-weight: 500;
 }
 
+#copyright {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  /* establish flex container */
+  flex-direction: row;
+  font-size: 8pt;
+}
+
+#copyright p {
+  margin: 0;
+  padding-right: 5px;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  bottom: 20px;
+  width: 100%;
+  right: 0px;
+  margin-bottom: -5px;
+  position: absolute;
+  height: 80px;
+}
+
+footer img {
+  width: 25px;
+  height: 25px;
+}
+
 
 #payment-form {
   padding: 20px 30px 30px;
@@ -74,8 +109,14 @@ h2 {
   border: 1px solid #e8e8fb;
 }
 
-/* Form */
+#payment-form h2{
+  color: white;
+}
 
+/* Form */
+span {
+  font-size: 15px;
+}
 fieldset {
   margin-bottom: 20px;
   background: #fff;
@@ -396,14 +437,14 @@ button:active {
   margin-left: auto;
   margin-right: auto;
 }
-a {
+#links a {
   color: black;
   text-decoration: none;
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 5px;
 }
 
-a:hover {
+#links a:hover {
   background-color: rgb(77, 77, 77);
   color: white;
   text-decoration: none;

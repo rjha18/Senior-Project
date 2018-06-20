@@ -11,5 +11,5 @@ function goToCart()
 
 function goToHome()
 {
-    window.location.href = '/';
+    window.location.href = '/home.html';
 }

@@ -105,15 +105,10 @@ function displayError(errorMessage) {
 
 function goToHome()
 {
-    window.location.href = '/';
+    window.location.href = '/home.html';
 }
 
 function goToCart()
 {
     window.location.href = '/cart.html';
-<<<<<<< HEAD
 }
-=======
-}
-
->>>>>>> 3a3398725c8785c644cc293f121e3c1ad6008d50
