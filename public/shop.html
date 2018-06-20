@@ -6,33 +6,35 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>    
     <body>
-        <img id="logo" src="Images/MRBIRDLOGO.png" onclick="goToHome()">
-        <div id="links">
-            <img id="shoppingCart" src="Images/shoppingcart.png" onclick="goToCart()">
-            <a id="shopLink">SHOP</a>
-        </div>
-        <div id="outer">
-            <div id="shopGrid">
-                <div class="item" onclick="goToItemPage('m1s1s')">
-                    <img src="Images/m1s1s.jpg" alt="">
-                </div>
-                <div class="item" onclick="goToItemPage('m1s1l')">
-                    <img src="Images/m1s1l.jpg" alt="">
-                </div>
-                <div class="item" onclick="goToItemPage('m1s2s')">
-                    <img src="Images/m1s2s.jpg" alt="">
+        <div id="backgroundImage">
+            <img id="logo" src="Images/MRBIRDLOGO.png" onclick="goToHome()">
+            <div id="links">
+                <img id="shoppingCart" src="Images/shoppingcart.png" onclick="goToCart()">
+                <a id="shopLink">SHOP</a>
+            </div>
+            <div id="outer">
+                <div id="shopGrid">
+                    <div class="item" onclick="goToItemPage('m1s1s')">
+                        <img src="Images/m1s1s.jpg" alt="">
+                    </div>
+                    <div class="item" onclick="goToItemPage('m1s1l')">
+                        <img src="Images/m1s1l.jpg" alt="">
+                    </div>
+                    <div class="item" onclick="goToItemPage('m1s2s')">
+                        <img src="Images/m1s2s.jpg" alt="">
+                    </div>
                 </div>
             </div>
+            <script src="js/shop.js"></script>
+            <footer>
+                <div id="copyright">
+                    <p>&copy; Mr. Bird, LLC</p>
+                    <a href="Mr. Bird, LLC Cookies Policy.pdf">Privacy</a>
+                </div>  
+                <a href="https://www.instagram.com/mr.b1rd/">
+                    <img src="Images/glyph-logo_May2016.png" alt="">
+                </a>
+            </footer>
         </div>
-        <script src="js/shop.js"></script>
-        <footer>
-            <div id="copyright">
-                <p>&copy; Mr. Bird, LLC</p>
-                <a href="Mr. Bird, LLC Cookies Policy.pdf">Privacy</a>
-            </div>  
-            <a href="https://www.instagram.com/mr.b1rd/">
-                <img src="Images/glyph-logo_May2016.png" alt="">
-            </a>
-        </footer>
     </body>
 </html>

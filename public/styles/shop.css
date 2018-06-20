@@ -7,6 +7,10 @@ html {
 body {
     position: relative;
     margin: 0px;
+    background-image: url('https://media.giphy.com/media/YWdcbvVrKLW1i/giphy.gif');
+    background-size: contain; 
+    background-position: center center; 
+    background-attachment: fixed;
 }
 
 #logo {
@@ -44,6 +48,9 @@ body {
         width: 50%;
         justify-content: space-evenly;
     }
+    body {
+        background-size: cover; 
+    }
 }
 
 #links {
@@ -76,6 +83,7 @@ body {
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
+    border: 1px solid rgba(0, 0, 0, 0.8);
 }
 
 #links a {
@@ -89,7 +97,6 @@ body {
 .item {
     background-color: black;
     border: 1px solid rgba(0, 0, 0, 0.8);
-    height: 300px;
     font-size: 30px;
     text-align: center;
     display: block;

@@ -8,8 +8,10 @@ html
 body {
 	position: relative;
 	margin: 0;
-	background: white;
-	
+	background-image: url('https://media.giphy.com/media/TfkIFUVVk7MBy/giphy.gif');
+    background-size: contain; 
+    background-position: center center; 
+    background-attachment: fixed;
 	min-height: 100%;
 }
 
@@ -28,6 +30,7 @@ body {
 }
 
 .clearfix {
+	color: white;
 	margin-right: auto;
 	margin-left: auto;
 	display: block;
@@ -44,6 +47,7 @@ body {
 	-ms-transition: color 0.2s linear;
 	-o-transition: color 0.2s linear;
 	transition: color 0.2s linear;
+	filter: invert(100%);
 }
 
 #links a:hover {
@@ -179,6 +183,10 @@ body {
 	-ms-transition: margin 0.15s linear;
 	-o-transition: margin 0.15s linear;
 	transition: margin 0.15s linear;
+}
+
+article {
+	background-color: white;
 }
 
 @media only screen and (max-width: 900px) 
@@ -370,7 +378,8 @@ footer {
     width: 100%;
     right: 0px;
     position: absolute;
-    height: 80px;
+	height: 80px;
+	filter: invert(100%);
 }
 
 footer img {
