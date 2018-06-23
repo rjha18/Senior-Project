@@ -80,9 +80,6 @@
             img.setAttribute("src", "Images/Asset " + (type + 3) + ".png");
             img.setAttribute("class", "feather");
 
-            ball.appendChild(img);
-            field.appendChild(ball);
-
             let height = field.clientHeight;
             let width = distance;
 
@@ -122,6 +119,10 @@
                     ball.style.left = spawn + width * progress + "px"
                 }
             });
+            
+            ball.appendChild(img);
+            field.appendChild(ball);
+
             setTimeout(function () { field.removeChild(ball) }, 8000);
         }
         var feathers = setInterval(createFeather, 200);
