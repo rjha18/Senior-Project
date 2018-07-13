@@ -70,7 +70,7 @@ function displayMessage()
     setTimeout(function () {
         messageBar.setAttribute("hidden", true);
     }, 3000);
-    window.scrollTo(0,document.body.scrollHeight);    
+    // window.scrollTo(0,document.body.scrollHeight);    
 }
 function goToHome()
 {

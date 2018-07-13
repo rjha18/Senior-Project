@@ -1,8 +1,3 @@
-body {
-    background-image: url('https://media.giphy.com/media/YWdcbvVrKLW1i/giphy.gif');
-}
-
-
 #shopGrid {
     display: grid;
     grid-template-columns: 225px;
@@ -62,19 +57,49 @@ body {
 
 
 .item {
-    background-color: black;
-    border: 1px solid rgba(0, 0, 0, 0.8);
     font-size: 30px;
+    height: 220px;
     text-align: center;
     display: block;
+    z-index: 999;
+    background-size: 220px;
+    border: 1px solid #eb13bc;
+    box-shadow: 0 0 1px #ff51f6, 0 0 2px #ff51f6, 0 0 6px #ff51f6, inset 0 0 1px #ff51f6, inset 0 0 2px #ff51f6, inset 0 0 6px #ff51f6;
+    background-repeat: no-repeat;
 }
 
-.item:hover {
-    filter: invert(100%);
+.item1 {
+    background-image: url("../Images/m1s1s.jpg");    
 }
 
-div img{
-    max-height: 220px;
-    max-width: 220px;
-    margin: 0;
+.item2 {
+    background-image: url("../Images/m1s1l.jpg");    
+}
+
+.item3 {
+    background-image: url("../Images/m1s2s.jpg");    
+}
+
+.item4 {
+    background-image: url("../Images/ebwwt.jpg");    
+}
+
+.item4:hover{
+    background-image: url("../Images/ebwwtb.jpg");
+}
+
+.item5 {
+    background-image: url("../Images/ebwpt.jpg");    
+}
+
+.item5:hover{
+    background-image: url("../Images/ebwptb.jpg");
+}
+
+.item6 {
+    background-image: url("../Images/ebwws.jpg");    
+}
+
+.item6:hover{
+    background-image: url("../Images/ebwwsb.jpg");
 }
