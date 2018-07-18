@@ -1,18 +1,7 @@
-/**
- * store.css
- * Stripe Payments Demo. Created by Romain Huet (@romainhuet).
- */
 
 * {
-  box-sizing: border-box;
   line-height: 1.4em;
 }
-
-
-body {
-  background-image: url('https://media.giphy.com/media/vQ300zVAdhrJC/giphy.gif');
-}
-
 
 /* Checkout */
 
@@ -46,15 +35,20 @@ h2 {
   margin-top: 40px;
   border-radius: 4px;
   border: 1px solid #e8e8fb;
+  color: black;
+  text-shadow: none;
 }
 
 #payment-form h2{
   color: white;
+  text-shadow: none;
 }
 
 /* Form */
 span {
   font-size: 15px;
+  color: black;
+  text-shadow: none;
 }
 fieldset {
   margin-bottom: 20px;
@@ -74,7 +68,6 @@ fieldset label {
   padding: 10px 0;
   align-items: center;
   justify-content: center;
-  color: #8898aa;
   font-weight: 400;
 }
 
@@ -148,6 +141,7 @@ input {
   border-style: none;
   outline: none;
   color: #313b3f;
+  text-shadow: none;
 }
 
 select {
@@ -161,9 +155,14 @@ select {
   color: #313b3f;
   cursor: pointer;
   background: transparent;
+  text-shadow: none;
 }
 
 select:focus {
+  color: black;
+}
+
+option {
   color: black;
 }
 
@@ -214,6 +213,7 @@ button {
   outline: none;
   cursor: pointer;
   transition: all 0.15s ease;
+  text-shadow: none;
 }
 
 button:focus {
@@ -344,27 +344,33 @@ button:active {
 
 }
 
-
-#links a {
-  color: black;
-}
-
 #shoppingCart {
-  height: 30px;
-  width: 30px;
+  box-shadow: 0 0 1px #C94D83, 0 0 2px #C94D83, 0 0 6px #C94D83, inset 0 0 1px #C94D83, inset 0 0 2px #C94D83, inset 0 0 6px #C94D83;    
 }
 
 #shoppingCart:hover {
-  background-color: rgb(185, 185, 185);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  filter: invert(100%);
+  box-shadow: 0 0 1px #C94D83, 0 0 2px #C94D83, 0 0 6px #C94D83, 0 0 20px #C94D83, inset 0 0 1px #C94D83, inset 0 0 2px #C94D83, inset 0 0 6px #C94D83, inset 0 0 20px #C94D83;        
+  background-color: rgb(77, 77, 77);
   cursor: pointer;
 }
 
+#links a {
+  box-shadow: 0 0 1px #C94D83, 0 0 2px #C94D83, 0 0 6px #C94D83, inset 0 0 1px #C94D83, inset 0 0 2px #C94D83, inset 0 0 6px #C94D83;        
+}
 
 #links a:hover {
+  box-shadow: 0 0 1px #C94D83, 0 0 2px #C94D83, 0 0 6px #C94D83, 0 0 20px #C94D83, inset 0 0 1px #C94D83, inset 0 0 2px #C94D83, inset 0 0 6px #C94D83, inset 0 0 20px #C94D83;            
   background-color: rgb(77, 77, 77);
-  color: white;
   text-decoration: none;
   cursor: pointer;
+}
+
+#copyright {
+  color: #F490BE;
+  text-shadow: 0 0 1px #C94D83, 0 0 2px #C94D83, 0 0 6px #C94D83;
+}
+
+#card-errors {
+  color: white;
+  text-shadow: none;
 }

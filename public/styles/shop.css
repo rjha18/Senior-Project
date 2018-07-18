@@ -1,3 +1,20 @@
+/* Header */
+#shoppingCart {
+    box-shadow: 0 0 1px #C94D83, 0 0 2px #C94D83, 0 0 6px #C94D83, inset 0 0 1px #C94D83, inset 0 0 2px #C94D83, inset 0 0 6px #C94D83;    
+}
+
+#shoppingCart:hover {
+    box-shadow: 0 0 1px #C94D83, 0 0 2px #C94D83, 0 0 6px #C94D83, 0 0 20px #C94D83, inset 0 0 1px #C94D83, inset 0 0 2px #C94D83, inset 0 0 6px #C94D83, inset 0 0 20px #C94D83;    
+    background-color: rgb(77, 77, 77);
+    cursor: pointer;
+}
+
+#links a {
+    background-color: rgb(77, 77, 77);
+    box-shadow: 0 0 1px #C94D83, 0 0 2px #C94D83, 0 0 6px #C94D83, 0 0 20px #C94D83, inset 0 0 1px #C94D83, inset 0 0 2px #C94D83, inset 0 0 6px #C94D83, inset 0 0 20px #C94D83; 
+}
+
+/* Clothing Grid */
 #shopGrid {
     display: grid;
     grid-template-columns: 225px;
@@ -24,38 +41,6 @@
     }
 }
 
-
-#shoppingCart {
-    height: 24px;
-    width: 24px;
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 2px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#shoppingCart:hover {
-    background-color: rgb(185, 185, 185);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    filter: invert(100%);
-    cursor: pointer;
-}
-
-#shopLink {
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid rgba(0, 0, 0, 0.8);
-}
-
-#links a {
-    background-color: rgb(77, 77, 77);
-    color: white;
-    text-decoration: none;
-    padding: 5px;
-}
-
-
 .item {
     font-size: 30px;
     height: 220px;
@@ -63,11 +48,17 @@
     display: block;
     z-index: 999;
     background-size: 220px;
-    border: 1px solid #eb13bc;
-    box-shadow: 0 0 1px #ff51f6, 0 0 2px #ff51f6, 0 0 6px #ff51f6, inset 0 0 1px #ff51f6, inset 0 0 2px #ff51f6, inset 0 0 6px #ff51f6;
+    border: 2px solid #F490BE;
+    box-shadow: 0 0 1px #C94D83, 0 0 2px #C94D83, 0 0 6px #C94D83, inset 0 0 1px #C94D83, inset 0 0 2px #C94D83, inset 0 0 6px #C94D83;
     background-repeat: no-repeat;
 }
 
+.item:hover {
+    box-shadow: 0 0 1px #C94D83, 0 0 2px #C94D83, 0 0 6px #C94D83, 0 0 20px #C94D83, inset 0 0 1px #C94D83, inset 0 0 2px #C94D83, inset 0 0 6px #C94D83, inset 0 0 20px #C94D83;
+    cursor: pointer;
+}
+
+/* Specific Items */
 .item1 {
     background-image: url("../Images/m1s1s.jpg");    
 }

@@ -1,64 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:800');
+
+* {
+    box-sizing: border-box;
+    color: #F490BE;
+    text-shadow: 0 0 1px #C94D83, 0 0 2px #C94D83, 0 0 6px #C94D83;
+}
+
 html {
-	font-family: Helvetica, Helvetica, sans-serif;
+    /*font-family: Helvetica, Helvetica, sans-serif;*/
+    font-family: 'Nunito', sans-serif;
 	position: relative;
 	padding-bottom: 80px;
 }
 
 body {
-	margin: 0px;
-    background-size: contain; 
+	margin: 0px; 
     background-position: center center; 
-	background-attachment: fixed;
+    background-attachment: fixed;
+    background-image: url('../Images/blackbricks.jpg');
 }
 
+/* Header */ 
 #logo {
-	max-width: 754px;
+	max-width: 200px;
 	width: 100%;
 	height: auto;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 50px;
 }
 
 #logo:hover {
     cursor: pointer;
 }
 
-
 #links {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20px;
     margin-bottom: 10px;
     display: flex;
     /* establish flex container */
     flex-direction: column;
+    
+}
+
+#shoppingCart {
+    border: 2px solid #F490BE;
+    height: 30px;
+    width: 30px;
+    padding: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    
 }
 
 #links a {
     text-decoration: none;
-    border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 5px;
-}
-
-
-#shoppingCart {
-    height: 24px;
-    width: 24px;
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 2px;
-    margin-left: auto;
-	margin-right: auto;
-    border: 1px solid rgba(0, 0, 0, 0.8);
-}
-
-#shopLink {
+    border: 2px solid #F490BE;
+    color: #F490BE;
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
 }
 
+/* Footer */
 #copyright {
     margin-top: 20px;
     margin-bottom: 10px;
@@ -88,4 +94,3 @@ footer img {
     width: 25px;
     height: 25px;
 }
-
