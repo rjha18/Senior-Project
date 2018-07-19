@@ -1,3 +1,3 @@
 document.onclick = function() {
-    window.location.href = '/home.html';
+    window.location.href = '/shop.html';
 }

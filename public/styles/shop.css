@@ -94,3 +94,11 @@
 .item6:hover{
     background-image: url("../Images/ebwwsb.jpg");
 }
+
+.soldOut:hover {
+    cursor: default;
+}
+
+.soldOut p {
+    margin-top: 60px;
+}

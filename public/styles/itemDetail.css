@@ -78,6 +78,10 @@
     box-shadow: 0 0 1px #C94D83, 0 0 2px #C94D83, 0 0 6px #C94D83, inset 0 0 1px #C94D83, inset 0 0 2px #C94D83, inset 0 0 6px #C94D83;
 }
 
+#back:hover {
+    visibility: default;
+}
+
 /* Product Details */
 #details {
     display: block;

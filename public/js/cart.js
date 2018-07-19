@@ -32,19 +32,17 @@ function checkout()
 }
 
 function loadThenCloneFirst(id, value, object, products) {
-    console.log("hello");
     var price = 0;
     var datapoints = object.getElementsByClassName("datapoint");
-    var productName = "Migration " + id.charAt(1) + " | Species " + id.charAt(3);
-    if (id.charAt(4) == 's')
-    {
-        productName += " | Shortsleeve";
-        price = 25;
-    } 
-    else 
-    {
-        productName += " | Longsleeve";
-        price = 30;
+    if (id.substring(0, 5) === "ebwpt") {
+        price = 35;
+        productName = "Exotic Birds Wanted Pink SS";
+    } else if (id.substring(0, 5) == "ebwwt") {
+        price = 35;
+        productName = "Exotic Birds Wanted White SS";
+    } else {
+        price = 50;
+        productName = "Exotic Birds Wanted White Sweatshirt";
     }
     
     var size = "";
@@ -57,11 +55,15 @@ function loadThenCloneFirst(id, value, object, products) {
     {
         size = "Medium";
     }
-    else 
+    else  if (sizeChar == "L")
     {
         size = "Large";
     }
-    datapoints[0].src = "Images/"+id.substring(0,id.length-1)+".jpg";
+    else 
+    {
+        size = "Extra Large"
+    }
+    datapoints[0].src = "Images/"+id.substring(0,5)+".jpg";
     datapoints[1].innerHTML = productName;
     datapoints[2].innerHTML = size;
     datapoints[3].innerHTML = value;
@@ -136,5 +138,5 @@ function emptyCart()
 
 function goToHome()
 {
-    window.location.href = '/home.html';
+    window.location.href = '/';
 }
