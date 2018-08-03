@@ -1,25 +1,32 @@
 var amount = 25;
-var id = '2s';
+var id = '';
 
 var URLid = getQueryVariable("id");
 if (URLid) {
     id = URLid;
-    document.getElementById("product").src = "Images/"+id+".jpg";
-    if (id == "m1s1s") {
-        amount = 25;
-        setName("Migration 1 | Shirt 1 | Shortsleeve");
+    var image = document.getElementById("product");
+    image.src = "Images/"+id+".jpg";
+    image.addEventListener("mouseover", function () {image.src = "Images/"+id+"b.jpg"}, false);
+    image.addEventListener("mouseout", function () {image.src = "Images/"+id+".jpg"}, false);
+
+    if (id == "ebwpt") {
+        amount = 35;
+        setName ("Exotic Birds Wanted Pink SS");
         setPrice(amount);
-        //setImage();
-    } else if (id == "m1s1l"){
-        amount = 30;
-        setName("Migration 1 | Shirt 1 | Longsleeve");
+    } else if (id == "ebwwt") {
+        amount = 35;
+        setName ("Exotic Birds Wanted White SS");
         setPrice(amount);
-        //setImage();
+    } else if (id == "ebwws") {
+        amount = 50;
+        setName ("Exotic Birds Wanted White Sweatshirt");
+        setPrice(amount);
     } else {
-        amount = 25;
-        setName("Migration 1 | Shirt 1 | Shortsleeve");
+        amount = null;
+        setName ("Item Not Found")
         setPrice(amount);
-        //throw error
+        document.getElementById("button").style.display = 'none';
+        image.style.display = 'none';
     }
 }
 
@@ -74,5 +81,5 @@ function displayMessage()
 }
 function goToHome()
 {
-    window.location.href = '/home.html';
+    window.location.href = '/';
 }

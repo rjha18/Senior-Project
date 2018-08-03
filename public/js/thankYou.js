@@ -1,6 +1,6 @@
 function goToHome()
 {
-    window.location.href = '/home.html';
+    window.location.href = '/';
 }
 
 function goToCart()

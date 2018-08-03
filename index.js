@@ -5,7 +5,12 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 var cookieSession = require('cookie-session');
-var productList = ["m1s1sS", "m1s1sM", "m1s1sL", "m1s1lS", "m1s1lS", "m1s1lM", "m1s1lL", "m1s2sS", "m1s2sM", "m1s2sL" ];
+var productList = ["m1s1sS", "m1s1sM", "m1s1sL", 
+				   "m1s1lS", "m1s1lM", "m1s1lL", 
+				   "m1s2sS", "m1s2sM", "m1s2sL", 
+				   "ebwwsS", "ebwwsM", "ebwwsL", "ebwwsXL",
+				   "ebwptS", "ebwptM", "ebwptL", "ebwptXL",
+				   "ebwwtS", "ebwwtM", "ebwwtL", "ebwwtXL"];
 
 
 var stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
@@ -53,7 +58,7 @@ app.post('/apii/:data', function(req, res, next) {
 		} 
 		for (var i = 0; i < productList.length; i++)
 		{
-			console.log(productList[i]+itemDescription);
+			console.log("xd", productList[i]+itemDescription);
 			if (!(productList[i] === itemDescription) && previousCookie[productList[i]]) 
 			{
 				jsonObject[productList[i]] = previousCookie[productList[i]];
@@ -72,7 +77,7 @@ app.post('/apii/:data', function(req, res, next) {
 
 	
 	var jsonString = JSON.stringify(jsonObject);
-	console.log(jsonString);
+	console.log("jsonString" + jsonString);
 	res.cookie
 	(
 		'cart', 
@@ -97,16 +102,15 @@ app.post('/api/:data', function handleReq(req, res, next) {
 		var id = productList[i];
 		if (cookie[productList[i]]) 
 		{
-			var productName = "Migration " + id.charAt(1) + "|Species " + id.charAt(3);
-			if (id.charAt(4) == 's')
-			{
-				productName += "|Shortsleeve ";
-				price = 25;
-			} 
-			else 
-			{
-				productName += "|Longsleeve ";
-				price = 30;
+			if (id.substring(0, 5) === "ebwpt") {
+				price = 35;
+				productName = "Exotic Birds Wanted Pink SS";
+			} else if (id.substring(0, 5) == "ebwwt") {
+				price = 35;
+				productName = "Exotic Birds Wanted White SS";
+			} else {
+				price = 50;
+				productName = "Exotic Birds Wanted White Sweatshirt";
 			}
 			
 			var size = "";
@@ -119,9 +123,13 @@ app.post('/api/:data', function handleReq(req, res, next) {
 			{
 				size = "Medium";
 			}
-			else 
+			else  if (sizeChar == "L")
 			{
 				size = "Large";
+			}
+			else 
+			{
+				size = "Extra Large"
 			}
 			
 			amount += price * cookie[productList[i]];
@@ -205,5 +213,5 @@ app.post('/api/:data', function handleReq(req, res, next) {
 
 function goToHome()
 {
-    window.location.href = '/home.html';
+    window.location.href = '/';
 }
