@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="shortcut icon" href="Images/favicon.png">
+    <title>Nest</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="row">
+        <div class="column">
+            <img id="logo" src="Images/Asset 2.png">
+
+        </div>
+        <div class="column">
+
+            <img src="Images/Asset 3.png">
+
+        </div>
+        <div class="column">
+
+            <img src="Images/Asset 1.png">
+        </div>
+    </div>
+
+    <div id="wrapper">
+
+        <div id="field"></div>
+    </div>
+    <script>
+        // function myFunction(x) {
+        //     if (x.matches) { // If media query matches
+        //         clearInterval(feathers);
+        //     } else {
+        //     }
+        // }
+
+        // var x = window.matchMedia("(max-width: 500px)")
+        // myFunction(x) // Call listener function at run time
+        // x.addListener(myFunction) // Attach listener function on state changes
+
+        function makeEaseOut(timing) {
+            return function (timeFraction) {
+                return 1 - timing(1 - timeFraction);
+            }
+        }
+
+        function quad(timeFraction) {
+            return Math.pow(timeFraction, 2);
+        }
+
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        var field = document.getElementById("field");
+        function createFeather() {
+            var image = document.getElementById("logo");
+            var screenWidth = window.innerWidth;
+            var type = getRandomInt(1, 9);
+            var distance = 0;//getRandomInt(-spawn, screenWidth - spawn);
+            var ball = document.createElement('a');
+            var img = document.createElement("IMG");
+            var spawn = 0;
+
+            if (type > 6) {
+                ball.setAttribute("href", "shop.html");
+                spawn = Math.floor(screenWidth / 6);
+            } else if (type > 3) {
+                ball.setAttribute("href", "https://www.instagram.com/mr.b1rd/");
+                spawn = Math.floor(screenWidth / 2);
+            } else {
+                ball.setAttribute("href", "http://www.reifelbirdsanctuary.com");
+                spawn = Math.floor(5 * screenWidth / 6);
+            }
+            console.log(spawn);
+            var distance = getRandomInt(-(screenWidth / 6), (screenWidth / 6));
+            img.setAttribute("src", "Images/Asset " + (type + 3) + ".png");
+            img.setAttribute("class", "feather");
+
+            let height = field.clientHeight;
+            let width = distance;
+
+            function animate({ timing, draw, duration }) {
+
+                let start = performance.now();
+
+                requestAnimationFrame(function animate(time) {
+                    // timeFraction goes from 0 to 1
+                    let timeFraction = (time - start) / duration;
+                    if (timeFraction > 1) timeFraction = 1;
+
+                    // calculate the current animation state
+                    let progress = timing(timeFraction);
+
+                    draw(progress); // draw it
+
+                    if (timeFraction < 1) {
+                        requestAnimationFrame(animate);
+                    }
+
+                });
+            }
+
+            animate({
+                duration: 7000,
+                timing: makeEaseOut(quad),
+                draw: function (progress) {
+                    ball.style.top = height * progress + 'px'
+                }
+            });
+
+            animate({
+                duration: 7000,
+                timing: makeEaseOut(quad),
+                draw: function (progress) {
+                    ball.style.left = spawn + width * progress + "px"
+                }
+            });
+            
+            ball.appendChild(img);
+            field.appendChild(ball);
+
+            setTimeout(function () { field.removeChild(ball) }, 8000);
+        }
+        var feathers = setInterval(createFeather, 200);
+    </script>
+
+
+</body>
+
+</html>
